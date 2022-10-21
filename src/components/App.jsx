@@ -17,10 +17,18 @@ const INITIAL_STATE = {
 export class App extends Component {
   state = { ...INITIAL_STATE };
 
-  componentDidMount() {}
+  componentDidMount() {
+    const json = localStorage.getItem('contacts');
+    const parse = JSON.parse(json);
+    this.setState({ contacts: parse });
+  }
 
-  componentDidUpdate() {
-    // console.log(this.state.filter);
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts.length !== this.state.contacts.length) {
+      const newContacts = this.state.contacts;
+      const json = JSON.stringify(newContacts);
+      localStorage.setItem('contacts', json);
+    }
   }
 
   handleSubmit = evt => {
