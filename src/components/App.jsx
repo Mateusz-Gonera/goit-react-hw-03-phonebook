@@ -17,6 +17,8 @@ const INITIAL_STATE = {
 export class App extends Component {
   state = { ...INITIAL_STATE };
 
+  componentDidMount() {}
+
   componentDidUpdate() {
     // console.log(this.state.filter);
   }
