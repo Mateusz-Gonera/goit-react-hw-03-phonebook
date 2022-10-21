@@ -15,7 +15,10 @@ const INITIAL_STATE = {
 };
 
 export class App extends Component {
-  state = { ...INITIAL_STATE };
+  state = {
+    contacts: [],
+    filter: '',
+  };
 
   componentDidMount() {
     const json = localStorage.getItem('contacts');
